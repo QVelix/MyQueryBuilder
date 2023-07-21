@@ -85,6 +85,9 @@ class MyQueryBuilder{
                 }
             }
         }
+        if(gettype($values)=="string"){
+            $this->query .= $values;
+        }
         $this->query .= ")";
     }
 
