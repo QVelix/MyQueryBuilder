@@ -39,12 +39,20 @@ class MyQueryBuilder{
             }
         }
         if(gettype($colums)=="string"){
-            $this->query = "SELECT ".$colums;
+            $this->query = "SELECT {$colums}";
         }
     }
 
     public function from($table){
-        $this->query .= "FROM ".$table;
+        $this->query .= " FROM ".$table;
+    }
+
+    public function where($colum, $operator, $variable){
+        if(str_contains($this->query, "WHERE")){
+            $this->query .= " AND {$colum} {$operator} {$variable}";
+        }else{
+            $this->query .= " WHERE {$colum} {$operator} {$variable}";
+        }
     }
 }
 
