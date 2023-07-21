@@ -43,6 +43,24 @@ class MyQueryBuilder{
         }
     }
 
+    public function insert($table, $colums){
+        $this->query .= "INSERT INTO {$table}(";
+        if(gettype($colums)=="array"){
+            $size = count($colums);
+            for($i=0;$i<$size;$i++){
+                if($i==($size-1)){
+                    $this->query .= $colums[$i];
+                }else{
+                    $this->query .= $colums[$i].", ";
+                }
+            }
+        }
+        if(gettype($colums)=="string"){
+            $this->query .= $colums;
+        }
+        $this->query .= ")";
+    }
+
     public function from($table){
         $this->query .= " FROM ".$table;
     }
