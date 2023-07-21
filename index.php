@@ -138,6 +138,14 @@ class MyQueryBuilder{
     public function ascendingSort(){
         $this->query .= " ASC";
     }
+
+    public function execute(){
+        try{
+            return $this->connection->query($this->query.";");
+        }catch(PDOException $e){
+            return $e;
+        }
+    }
 }
 
 ?>
