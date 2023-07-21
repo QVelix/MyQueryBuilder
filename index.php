@@ -130,6 +130,14 @@ class MyQueryBuilder{
             $this->query .= $colums;
         }
     }
+
+    public function descendingSort(){
+        $this->query .= " DESC";
+    }
+
+    public function ascendingSort(){
+        $this->query .= " ASC";
+    }
 }
 
 ?>
