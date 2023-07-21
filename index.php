@@ -42,6 +42,10 @@ class MyQueryBuilder{
             $this->query = "SELECT ".$colums;
         }
     }
+
+    public function from($table){
+        $this->query .= "FROM ".$table;
+    }
 }
 
 ?>
