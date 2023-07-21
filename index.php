@@ -14,6 +14,7 @@ class MyQueryBuilder{
         $this->password = $config['password'];
         $this->host = $config['host'];
         $this->dbName = $config['dbName'];
+        $this->createConection();
     }
 
     private function createConection(){
