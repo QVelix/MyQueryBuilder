@@ -73,6 +73,21 @@ class MyQueryBuilder{
         $this->query .= " FROM ".$table;
     }
 
+    public function values($values){
+        $this->query .= " VALUES (";
+        if(gettype($values)=="array"){
+            $size = count($values);
+            for($i=0;$i<$size;$i++){
+                if($i==($size-1)){
+                    $this->query .= $values[$i];
+                }else{
+                    $this->query .= $values[$i].", ";
+                }
+            }
+        }
+        $this->query .= ")";
+    }
+
     public function where($colum, $operator, $variable){
         if(str_contains($this->query, "WHERE")){
             $this->query .= " AND {$colum} {$operator} {$variable}";
