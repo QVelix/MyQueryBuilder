@@ -61,6 +61,10 @@ class MyQueryBuilder{
         $this->query .= ")";
     }
 
+    public function delete(){
+        $this->query .= "DELETE";
+    }
+
     public function from($table){
         $this->query .= " FROM ".$table;
     }
