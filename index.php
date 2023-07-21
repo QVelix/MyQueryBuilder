@@ -106,6 +106,13 @@ class MyQueryBuilder{
             $this->query .= " WHERE {$colum} {$operator} {$variable}";
         }
     }
+
+    public function limit($limit, $offset=0){
+        $this->query .= "LIMIT {$limit}";
+        if($offset!=0){
+            $this->query .= ", {$offset}";
+        }
+    }
 }
 
 ?>
