@@ -108,7 +108,7 @@ class MyQueryBuilder{
     }
 
     public function limit($limit, $offset=0){
-        $this->query .= "LIMIT {$limit}";
+        $this->query .= " LIMIT {$limit}";
         if($offset!=0){
             $this->query .= ", {$offset}";
         }
