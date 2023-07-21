@@ -88,6 +88,14 @@ class MyQueryBuilder{
         $this->query .= ")";
     }
 
+    public function set($colum, $value){
+        if(str_contains($this->query, "SET")){
+            $this->query .= ", {$colum} = {$value}";
+        }else{
+            $this->query .= " SET {$colum} = {$value}";
+        }
+    }
+
     public function where($colum, $operator, $variable){
         if(str_contains($this->query, "WHERE")){
             $this->query .= " AND {$colum} {$operator} {$variable}";
