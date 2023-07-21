@@ -113,6 +113,23 @@ class MyQueryBuilder{
             $this->query .= ", {$offset}";
         }
     }
+
+    public function orderBy($colums){
+        $this->query .= " ORDER BY ";
+        if(gettype($colums)=="array"){
+            $size = count($colums);
+            for($i=0;$i<$size;$i++){
+                if($i==($size-1)){
+                    $this->query .= $colums[$i];
+                }else{
+                    $this->query .= $colums[$i].", ";
+                }
+            }
+        }
+        if(gettype($colums)=="string"){
+            $this->query .= $colums;
+        }
+    }
 }
 
 ?>
