@@ -65,6 +65,10 @@ class MyQueryBuilder{
         $this->query .= "DELETE";
     }
 
+    public function update($table){
+        $this->query .= "UPDATE {$table}";
+    }
+
     public function from($table){
         $this->query .= " FROM ".$table;
     }
