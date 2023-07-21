@@ -15,6 +15,11 @@ class MyQueryBuilder{
         $this->host = $config['host'];
         $this->dbName = $config['dbName'];
     }
+
+    private function createConection(){
+        $dsn = $this->dbType.":host=".$this->host.";dbname=".$this->dbName.";charset=utf8";
+        $this->connection = new PDO($dsn, $this->login, $this->password, array(PDO::ATTR_PERSISTENT=>true));
+    }
 }
 
 ?>
