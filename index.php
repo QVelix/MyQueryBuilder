@@ -1,7 +1,5 @@
 <?php
 
-use function PHPSTORM_META\type;
-
 class MyQueryBuilder{
     private $dbType;
     private $login;
