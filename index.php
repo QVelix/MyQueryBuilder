@@ -41,6 +41,7 @@ class MyQueryBuilder{
         if(gettype($colums)=="string"){
             $this->query = "SELECT {$colums}";
         }
+        return $this;
     }
 
     public function insert($table, $colums){
@@ -59,18 +60,22 @@ class MyQueryBuilder{
             $this->query .= $colums;
         }
         $this->query .= ")";
+        return $this;
     }
 
     public function delete(){
         $this->query .= "DELETE";
+        return $this;
     }
 
     public function update($table){
         $this->query .= "UPDATE {$table}";
+        return $this;
     }
 
     public function from($table){
         $this->query .= " FROM ".$table;
+        return $this;
     }
 
     public function values($values){
@@ -89,6 +94,7 @@ class MyQueryBuilder{
             $this->query .= $values;
         }
         $this->query .= ")";
+        return $this;
     }
 
     public function set($colum, $value){
@@ -97,6 +103,7 @@ class MyQueryBuilder{
         }else{
             $this->query .= " SET {$colum} = {$value}";
         }
+        return $this;
     }
 
     public function where($colum, $operator, $variable){
@@ -105,6 +112,7 @@ class MyQueryBuilder{
         }else{
             $this->query .= " WHERE {$colum} {$operator} {$variable}";
         }
+        return $this;
     }
 
     public function limit($limit, $offset=0){
@@ -112,6 +120,7 @@ class MyQueryBuilder{
         if($offset!=0){
             $this->query .= ", {$offset}";
         }
+        return $this;
     }
 
     public function orderBy($colums){
@@ -129,14 +138,17 @@ class MyQueryBuilder{
         if(gettype($colums)=="string"){
             $this->query .= $colums;
         }
+        return $this;
     }
 
     public function descendingSort(){
         $this->query .= " DESC";
+        return $this;
     }
 
     public function ascendingSort(){
         $this->query .= " ASC";
+        return $this;
     }
 
     public function execute(){
