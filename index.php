@@ -1,4 +1,8 @@
 <?php
+namespace MyQueryBuilder;
+
+use PDO;
+use PDOException;
 
 class MyQueryBuilder{
     private $dbType;
