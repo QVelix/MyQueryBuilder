@@ -151,7 +151,7 @@ class MyQueryBuilder{
 
     public function execute(){
         try{
-            return $this->connection->query($this->query.";");
+            return $this->connection->query($this->query.";")->fetch();
         }catch(PDOException $e){
             return $e;
         }
