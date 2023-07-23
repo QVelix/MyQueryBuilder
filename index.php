@@ -7,7 +7,7 @@ class MyQueryBuilder{
     private $host;
     private $dbName;
     private $connection;
-    private $query;
+    private $query = "";
 
     public function __construct($config)
     {
@@ -96,7 +96,7 @@ class MyQueryBuilder{
     }
 
     public function set($colum, $value){
-        if(str_contains($this->query, "SET")){
+        if(strpos($this->query, "SET")){
             $this->query .= ", {$colum} = {$value}";
         }else{
             $this->query .= " SET {$colum} = {$value}";
@@ -105,7 +105,7 @@ class MyQueryBuilder{
     }
 
     public function where($colum, $operator, $variable){
-        if(str_contains($this->query, "WHERE")){
+        if(strpos($this->query, "WHERE")){
             $this->query .= " AND {$colum} {$operator} {$variable}";
         }else{
             $this->query .= " WHERE {$colum} {$operator} {$variable}";
